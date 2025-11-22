@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forts of Chhatrapati Shivaji Maharaj</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+        crossorigin="anonymous"
+    />
+
+    <style>
+        :root {
+            --primary-saffron: #ff8c00;
+            --dark-navy: #071019;
+            --off-white: #f5f5f5;
+            --accent-red: #e63946;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Open Sans", sans-serif;
+            background-color: #0a1016;
+            color: #eaeaea;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            transition: all 0.3s ease;
+            padding-top: 0.8rem;
+            padding-bottom: 0.8rem;
+        }
+
+        .navbar-custom {
+            background: rgba(7, 16, 25, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-scrolled {
+            background: rgba(7, 16, 25, 0.97) !important;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--primary-saffron) !important;
+        }
+
+        .nav-link {
+            color: #f7f7f7 !important;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-saffron), var(--accent-red));
+            transition: width 0.25s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            padding-top: 70px;
+            padding-bottom: 60px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(
+                    120deg,
+                    rgba(0, 0, 0, 0.8),
+                    rgba(7, 16, 25, 0.9)
+                ),
+                url("https://images.pexels.com/photos/12747261/pexels-photo-12747261.jpeg?auto=compress&cs=tinysrgb&w=1600");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50px;
+            padding: 0.25rem 0.85rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-badge span.dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary-saffron);
+        }
+
+        .hero-title {
+            font-size: clamp(2.6rem, 4vw, 3.6rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero-title span {
+            background: linear-gradient(90deg, var(--primary-saffron), var(--accent-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            max-width: 560px;
+            color: #d0d0d0;
+            font-size: 0.98rem;
+        }
+
+        .hero-btn-primary {
+            background: linear-gradient(120deg, var(--primary-saffron), var(--accent-red));
+            border: none;
+            color: #111;
+            font-weight: 600;
+            padding: 0.75rem 1.6rem;
+            border-radius: 999px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .hero-btn-outline {
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hero-stat-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 0.2rem;
+            color: var(--primary-saffron);
+        }
+
+        .hero-stat-item p {
+            font-size: 0.9rem;
+            color: #c2c2c2;
+        }
+
+        .hero-image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 10% 0%, rgba(255, 140, 0, 0.18), transparent 60%);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Generic Section Styles */
+        section {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            color: var(--primary-saffron);
+        }
+
+        .section-heading h2 {
+            font-size: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .section-divider {
+            width: 70px;
+            height: 3px;
+            border-radius: 999px;
+            margin: 0.8rem auto 0;
+            background: linear-gradient(90deg, var(--primary-saffron), var(--accent-red));
+        }
+
+        /* About Section */
+        #about {
+            background: radial-gradient(circle at top, #1c2833, #050810 60%);
+        }
+
+        .about-text {
+            color: #d5d5d5;
+            font-size: 0.96rem;
+        }
+
+        .tag-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.2rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        /* Forts Section */
+        #forts {
+            background: radial-gradient(circle at center top, #17212b, #040610);
+        }
+
+        .fort-card {
+            background: linear-gradient(145deg, #101722, #04060b);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fort-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+            border-color: rgba(255, 140, 0, 0.4);
+        }
+
+        .fort-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .fort-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .fort-card:hover .fort-card-img img {
+            transform: scale(1.08);
+        }
+
+        .fort-badge {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .fort-location {
+            font-size: 0.85rem;
+            color: #c2c2c2;
+        }
+
+        .fort-card-body {
+            padding: 1.1rem 1.1rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fort-card-body h5 {
+            margin-top: 0.4rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .fort-desc {
+            font-size: 0.9rem;
+            color: #d3d3d3;
+        }
+
+        .btn-learn-more {
+            margin-top: auto;
+            align-self: flex-start;
+            padding: 0.4rem 1rem;
+            font-size: 0.86rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f1f1f1;
+        }
+
+        .btn-learn-more:hover {
+            border-color: var(--primary-saffron);
+            color: var(--primary-saffron);
+        }
+
+        /* Gallery Section */
+        #gallery {
+            background: radial-gradient(circle at bottom, #1b2838, #02040a);
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 18px;
+            object-fit: cover;
+            height: 100%;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+        }
+
+        .gallery-item::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.9);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 1rem;
+            bottom: 1rem;
+            z-index: 2;
+        }
+
+        .gallery-caption h6 {
+            margin: 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .gallery-caption span {
+            font-size: 0.8rem;
+            color: #e0e0e0;
+        }
+
+        /* Timeline Section */
+        #timeline {
+            background: radial-gradient(circle at center, #121824, #020308);
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 2rem;
+            padding-left: 1.5rem;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-saffron), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.8rem;
+            padding-left: 1.8rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -1px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff, var(--primary-saffron));
+            box-shadow: 0 0 10px rgba(255, 140, 0, 0.8);
+        }
+
+        .timeline-year {
+            font-weight: 600;
+            color: var(--primary-saffron);
+            font-size: 0.95rem;
+        }
+
+        .timeline-text {
+            font-size: 0.9rem;
+            color: #d4d4d4;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: radial-gradient(circle at top, #192231, #020308);
+        }
+
+        .contact-card {
+            background: linear-gradient(145deg, #0f1724, #05070e);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+        }
+
+        .form-control,
+        .form-control:focus,
+        .form-select {
+            background: rgba(7, 16, 25, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            box-shadow: none;
+        }
+
+        .form-control::placeholder {
+            color: #9c9c9c;
+            font-size: 0.86rem;
+        }
+
+        .btn-send {
+            background: linear-gradient(120deg, var(--primary-saffron), var(--accent-red));
+            border: none;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .btn-send:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #020308;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1.2rem 0;
+            font-size: 0.85rem;
+            color: #b8b8b8;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            margin-left: 0.5rem;
+            font-size: 0.85rem;
+            text-decoration: none;
+            color: #e6e6e6;
+        }
+
+        .footer-social a:hover {
+            border-color: var(--primary-saffron);
+            color: var(--primary-saffron);
+        }
+
+        /* Small animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 767.98px) {
+            .hero-section {
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image {
+                margin-top: 2rem;
+            }
+
+            .timeline {
+                padding-left: 1.1rem;
+            }
+
+            .timeline::before {
+                left: 8px;
+            }
+
+            .timeline-dot {
+                left: -3px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Chatrapati Shivaji Maharaj Forts</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#forts">Forts</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#timeline">Timeline</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Hero Text -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="hero-badge mb-3">
+                        <span class="dot"></span>
+                        Maratha Legacy • Fort Chronicles
+                    </div>
+                    <h1 class="hero-title">
+                        Discover the <span>Forts of Chhatrapati Shivaji Maharaj</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Explore the mighty hill forts that shaped Swarajya – from Raigad’s
+                        coronation echoes to Sinhagad’s fearless battles. A tribute to
+                        courage, strategy, and timeless architecture.
+                    </p>
+                    <div class="mt-4 d-flex flex-wrap gap-3">
+                        <a href="#forts" class="btn hero-btn-primary">Explore Forts</a>
+                        <a href="#timeline" class="btn hero-btn-outline">View History Timeline</a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="hero-stat-item">
+                            <h4>350+</h4>
+                            <p>Forts Linked with Shivaji Maharaj’s reign</p>
+                        </div>
+                        <div class="hero-stat-item">
+                            <h4>17th</h4>
+                            <p>Century architecture & hill-top marvels</p>
+                        </div>
+                        <div class="hero-stat-item">
+                            <h4>Legacy</h4>
+                            <p>Stories of valor, Swarajya & vision</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hero Image -->
+                <div class="col-lg-6">
+                    <div class="hero-image">
+                        <img
+                            src="D:\forts\logo.jpg"
+                            alt="Maratha hill fort"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-heading fade-up">
+                <div class="section-title">About the Legend</div>
+                <h2>Chhatrapati Shivaji Maharaj & His Forts</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="row align-items-center mt-4">
+                <div class="col-lg-6 mb-4 mb-lg-0 fade-up">
+                    <p class="about-text">
+                        Chhatrapati Shivaji Maharaj (1630–1680) was a visionary leader and
+                        founder of the Maratha Empire. Known for his brilliant military
+                        tactics, naval strength, and administrative excellence, he used
+                        forts not merely as defensive structures, but as strategic power
+                        centers.
+                    </p>
+                    <p class="about-text">
+                        From coastal sea forts to towering hill forts, each structure was
+                        carefully chosen for terrain, visibility, and defense. These forts
+                        became symbols of Swarajya – self-rule, resilience, and cultural
+                        pride.
+                    </p>
+                    <p class="about-text mb-3">
+                        This digital experience highlights some of the iconic forts
+                        associated with Shivaji Maharaj, their stories, and the timeless
+                        architecture that still inspires millions.
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="tag-chip">Strategic Architecture</span>
+                        <span class="tag-chip">Swarajya & Valor</span>
+                        <span class="tag-chip">Maratha Fort Heritage</span>
+                    </div>
+                </div>
+                <div class="col-lg-6 fade-up">
+                    <div class="hero-image">
+                        <img
+                            src="D:\forts\Raigad_Fort,_India.jpg"
+                            alt="Statue of Shivaji Maharaj"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forts Section -->
+<section id="forts">
+    <div class="container">
+        <div class="section-heading fade-up">
+            <div class="section-title">Featured Forts</div>
+            <h2>Iconic Forts of Shivaji Maharaj</h2>
+            <div class="section-divider"></div>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Fort 1 -->
+            <div class="col-md-6 col-lg-3 fade-up">
+                <div class="fort-card">
+                    <div class="fort-card-img">
+                        <img src="raigad.jfif" alt="Raigad Fort" />
+                    </div>
+                    <div class="fort-card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fort-badge">Capital Fort</span>
+                            <span class="fort-location">Raigad, Maharashtra</span>
+                        </div>
+                        <h5 class="mt-2">Raigad Fort</h5>
+                        <p class="fort-desc">
+                            The capital of the Maratha Empire and the coronation site.
+                        </p>
+                        <button class="btn btn-sm btn-learn-more">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fort 2 -->
+            <div class="col-md-6 col-lg-3 fade-up">
+                <div class="fort-card">
+                    <div class="fort-card-img">
+                        <img src="sinhgad.jfif" alt="Sinhagad Fort" />
+                    </div>
+                    <div class="fort-card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fort-badge">Battlefield Fort</span>
+                            <span class="fort-location">Pune, Maharashtra</span>
+                        </div>
+                        <h5 class="mt-2">Sinhagad Fort</h5>
+                        <p class="fort-desc">
+                            Known for the legendary battle of Tanaji Malusare.
+                        </p>
+                        <button class="btn btn-sm btn-learn-more">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fort 3 -->
+            <div class="col-md-6 col-lg-3 fade-up">
+                <div class="fort-card">
+                    <div class="fort-card-img">
+                        <img src="pratapgad.jfif" alt="Pratapgad Fort" />
+                    </div>
+                    <div class="fort-card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fort-badge">Historic Fort</span>
+                            <span class="fort-location">Satara, Maharashtra</span>
+                        </div>
+                        <h5 class="mt-2">Pratapgad Fort</h5>
+                        <p class="fort-desc">
+                            Famous for the battle with Afzal Khan in 1659.
+                        </p>
+                        <button class="btn btn-sm btn-learn-more">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fort 4 -->
+            <div class="col-md-6 col-lg-3 fade-up">
+                <div class="fort-card">
+                    <div class="fort-card-img">
+                        <img src="rajgad.jfif" alt="Rajgad Fort" />
+                    </div>
+                    <div class="fort-card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fort-badge">Royal Residence</span>
+                            <span class="fort-location">Pune District, Maharashtra</span>
+                        </div>
+                        <h5 class="mt-2">Rajgad Fort</h5>
+                        <p class="fort-desc">
+                            The first capital before Raigad.
+                        </p>
+                        <button class="btn btn-sm btn-learn-more">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MORE FORTS (Initially Hidden) -->
+            <div id="moreForts" style="display: none;">
+
+                <!-- Fort 5 -->
+                <div class="col-md-6 col-lg-3 fade-up">
+                    <div class="fort-card">
+                        <div class="fort-card-img">
+                            <img src="TornaFort.jfif" alt="Torna Fort" />
+                        </div>
+                        <div class="fort-card-body">
+                            <span class="fort-badge">First Capture</span>
+                            <span class="fort-location">Pune, Maharashtra</span>
+                            <h5 class="mt-2">Torna Fort</h5>
+                            <p class="fort-desc">First fort captured by Shivaji Maharaj at age 16.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fort 6 -->
+                <div class="col-md-6 col-lg-3 fade-up">
+                    <div class="fort-card">
+                        <div class="fort-card-img">
+                            <img src="lohagad.jfif" alt="Lohagad Fort" />
+                        </div>
+                        <div class="fort-card-body">
+                            <span class="fort-badge">Strong Fortress</span>
+                            <span class="fort-location">Lonavala, Maharashtra</span>
+                            <h5 class="mt-2">Lohagad Fort</h5>
+                            <p class="fort-desc">Known for its massive structure & long fort walls.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fort 7 -->
+                <div class="col-md-6 col-lg-3 fade-up">
+                    <div class="fort-card">
+                        <div class="fort-card-img">
+                            <img src="vasota.jfif" alt="Vasota Fort" />
+                        </div>
+                        <div class="fort-card-body">
+                            <span class="fort-badge">Forest Fort</span>
+                            <span class="fort-location">Satara</span>
+                            <h5 class="mt-2">Vasota Fort</h5>
+                            <p class="fort-desc">Located deep in Koyna wildlife sanctuary.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fort 8 -->
+                <div class="col-md-6 col-lg-3 fade-up">
+                    <div class="fort-card">
+                        <div class="fort-card-img">
+                            <img src="sindudurga.jfif" alt="Sindhudurg Fort" />
+                        </div>
+                        <div class="fort-card-body">
+                            <span class="fort-badge">Sea Fort</span>
+                            <span class="fort-location">Malvan, Maharashtra</span>
+                            <h5 class="mt-2">Sindhudurg</h5>
+                            <p class="fort-desc">Built by Shivaji Maharaj on an island for naval defense.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- END MORE FORTS -->
+
+        </div>
+
+        <!-- Show More Button -->
+        <div class="text-center mt-4">
+            <button id="toggleFortsBtn" class="btn btn-send px-4">
+                Show More
+            </button>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="container">
+            <div class="section-heading fade-up">
+                <div class="section-title">Fort Gallery</div>
+                <h2>Visual Journey Through the Sahyadris</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="row g-4 gallery-grid">
+                <div class="col-md-6 col-lg-4 fade-up">
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.pexels.com/photos/12747252/pexels-photo-12747252.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Fort walls in monsoon"
+                        />
+                        <div class="gallery-caption">
+                            <h6>Monsoon Majesty</h6>
+                            <span>Cloud-kissed ramparts & misty valleys</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-up">
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.pexels.com/photos/12747260/pexels-photo-12747260.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Fort entrance gate"
+                        />
+                        <div class="gallery-caption">
+                            <h6>Guarded Gateways</h6>
+                            <span>Massive doors, spikes & watch towers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-up">
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.pexels.com/photos/12747257/pexels-photo-12747257.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Sunset at hill fort"
+                        />
+                        <div class="gallery-caption">
+                            <h6>Sunset Silhouettes</h6>
+                            <span>Golden skies above ancient stones</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-up">
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.pexels.com/photos/12747254/pexels-photo-12747254.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Fort bastion"
+                        />
+                        <div class="gallery-caption">
+                            <h6>Bastion Watch</h6>
+                            <span>Lookouts guarding the horizon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-up">
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.pexels.com/photos/12747263/pexels-photo-12747263.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Steps leading to fort"
+                        />
+                        <div class="gallery-caption">
+                            <h6>Path to the Crown</h6>
+                            <span>Stone steps carved into the mountains</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 fade-up">
+                    <div class="gallery-item">
+                        <img
+                            src="https://images.pexels.com/photos/12747262/pexels-photo-12747262.jpeg?auto=compress&cs=tinysrgb&w=800"
+                            alt="Fort panoramic view"
+                        />
+                        <div class="gallery-caption">
+                            <h6>Sahyadri Panorama</h6>
+                            <span>Endless ridges & strategic vantage points</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center mt-4 text-muted" style="font-size: 0.8rem;">
+                *Replace image URLs with your own fort photographs or royalty-free images for production use.*
+            </p>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <div class="container">
+            <div class="section-heading fade-up">
+                <div class="section-title">Historical Timeline</div>
+                <h2>Key Moments in Fort History</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 mx-auto fade-up">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-year">1630</div>
+                            <div class="timeline-text">
+                                Birth of Shivaji Maharaj at Shivneri Fort, marking the dawn
+                                of a leader who would reshape the Deccan’s political map.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-year">1645–1656</div>
+                            <div class="timeline-text">
+                                Capture and development of key hill forts like Torna,
+                                Rajgad, and Purandar, laying the foundation of Swarajya.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-year">1659</div>
+                            <div class="timeline-text">
+                                Battle of Pratapgad against Afzal Khan – a decisive victory
+                                that established Maratha strength and strategic mastery of
+                                fort terrain.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-year">1670</div>
+                            <div class="timeline-text">
+                                Reconquest of forts like Sinhagad, Purandar, and several
+                                others from Mughal control, showcasing guerilla tactics and
+                                mountain warfare.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-year">1674</div>
+                            <div class="timeline-text">
+                                Coronation of Chhatrapati Shivaji Maharaj at Raigad Fort,
+                                elevating the Maratha kingdom to a sovereign empire.
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="timeline-dot"></span>
+                            <div class="timeline-year">Beyond</div>
+                            <div class="timeline-text">
+                                Even centuries later, these forts stand as living
+                                storytellers of resilience, sovereignty, and Marathi
+                                cultural pride.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-heading fade-up">
+                <div class="section-title">Get in Touch</div>
+                <h2>Share Your Fort Experience</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-7 fade-up">
+                    <div class="contact-card p-4 p-md-5">
+                        <p class="mb-4 text-muted" style="font-size: 0.9rem;">
+                            Have photos, memories, or stories from your treks to Shivaji
+                            Maharaj’s forts? Share them with us and keep the legacy alive
+                            for future generations.
+                        </p>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    placeholder="Enter your full name"
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    placeholder="you@example.com"
+                                />
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message / Story</label>
+                                <textarea
+                                    class="form-control"
+                                    id="message"
+                                    rows="4"
+                                    placeholder="Tell us about your visit, favorite fort, or a story that inspired you..."
+                                ></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-send w-100">
+                                Submit Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-2 mb-md-0">
+                © <span id="year"></span> Shivaji Forts Tribute. All rights reserved. <br />
+                <small>Dedicated to the legacy of Chhatrapati Shivaji Maharaj.</small>
+            </div>
+            <div class="footer-social">
+                <a href="javascript:void(0)" aria-label="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a href="javascript:void(0)" aria-label="Twitter">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+                <a href="javascript:void(0)" aria-label="YouTube">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Icons (for footer social icons) -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+
+    <!-- Bootstrap JS Bundle -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Small JS for navbar scroll + reveal animations -->
+    <script>
+        // Navbar background on scroll
+        const nav = document.getElementById("mainNav");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                nav.classList.add("navbar-scrolled");
+            } else {
+                nav.classList.remove("navbar-scrolled");
+            }
+        });
+
+        // Reveal fade-up elements
+        const fadeElems = document.querySelectorAll(".fade-up");
+
+        function handleScrollAnimations() {
+            const triggerBottom = window.innerHeight * 0.88;
+            fadeElems.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < triggerBottom) {
+                    el.classList.add("visible");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", handleScrollAnimations);
+        window.addEventListener("load", () => {
+            handleScrollAnimations();
+            document.getElementById("year").textContent = new Date().getFullYear();
+        });
+    </script>
+
+<!-- SCRIPT -->
+<script>
+    const moreForts = document.getElementById("moreForts");
+    const toggleBtn = document.getElementById("toggleFortsBtn");
+
+    toggleBtn.addEventListener("click", function () {
+        if (moreForts.style.display === "none") {
+            moreForts.style.display = "flex";
+            toggleBtn.textContent = "Show Less";
+        } else {
+            moreForts.style.display = "none";
+            toggleBtn.textContent = "Show More";
+        }
+    });
+</script>
+</body>
+</html>
